@@ -460,4 +460,81 @@ document.addEventListener("click", (event) => {
         menu.classList.remove("active");
     }
 
+}); 
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Sticky header
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header && header.classList.toggle('scrolled', window.scrollY > 35);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('mobile-active');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.classList.toggle('open', open);
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-active');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+    document.addEventListener('click', e => {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('mobile-active');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Hero crossfade carousel — first slide is always the supplied banner.
+  const slides = [...document.querySelectorAll('.hero-slide')];
+  const dots = [...document.querySelectorAll('.hero-dot')];
+  let current = 0;
+  let timer;
+  const showSlide = index => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+  };
+  const restart = () => {
+    clearInterval(timer);
+    if (slides.length > 1) timer = setInterval(() => showSlide(current + 1), 5200);
+  };
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); restart(); }));
+  if (slides.length) { showSlide(0); restart(); }
+
+  // Scroll reveal — BodyFit-inspired interaction, Geeta styling.
+  const revealItems = document.querySelectorAll('.reveal, .reveal-right, .service-row, .price-card');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('element-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+    revealItems.forEach(item => observer.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add('element-visible'));
+  }
+
+  // Keep active nav item roughly in sync with page sections.
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const navAnchors = [...document.querySelectorAll('.nav-links a')];
+  if ('IntersectionObserver' in window && sections.length && navAnchors.length) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    sections.forEach(section => sectionObserver.observe(section));
+  }
 });
