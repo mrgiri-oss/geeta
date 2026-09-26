@@ -31,7 +31,7 @@ button{font:inherit}
 .site-header.scrolled{padding:8px 0;background:rgba(255,249,236,.9);backdrop-filter:blur(18px)}
 .navbar{width:min(1180px,calc(100% - 36px));height:76px;margin:auto;padding:7px 10px 7px 13px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.96);border-radius:20px;box-shadow:0 12px 45px rgba(8,43,75,.11)}
 .brand{display:flex;align-items:center;gap:10px}
-.brand-logo{width:100px;height:100px;object-fit:contain}
+.brand-logo{width:65px;height:65px;object-fit:contain}
 .brand-name{display:flex;flex-direction:column;line-height:1}
 .brand-name strong{font:800 23px "Manrope",sans-serif;letter-spacing:1.2px;color:var(--navy)}
 .brand-name span{font-size:7px;letter-spacing:1.3px;font-weight:800;color:var(--orange);margin-top:6px}
@@ -1724,4 +1724,315 @@ button{font:inherit}
         font-size: 42px !important;
     }
 
+}
+/* =========================================================
+   GEETA V2 — BODYFIT-INSPIRED INTERACTIONS, GEETA VISUAL IDENTITY
+   ========================================================= */
+.hero-carousel{min-height:860px;padding:0;position:relative;background:var(--cream);overflow:hidden}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .9s ease,visibility .9s ease}
+.hero-slide.active{opacity:1;visibility:visible;pointer-events:auto;z-index:2}
+.promo-slide{background:var(--navy2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.promo-slide>img{width:100%;height:100%;object-fit:contain;display:block}
+.promo-slide-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,29,51,.76),rgba(5,29,51,.12) 58%,rgba(5,29,51,.18));pointer-events:none}
+.promo-slide-content{position:absolute;z-index:4;left:8%;top:50%;transform:translateY(-50%);max-width:520px;color:#fff;opacity:0;translate:0 22px;transition:opacity .6s ease,translate .6s ease}
+.hero-slide.active .promo-slide-content{opacity:1;translate:0 0;transition-delay:.2s}
+.hero-slide-kicker{display:inline-block;font-size:10px;letter-spacing:2px;font-weight:900;color:var(--gold);margin-bottom:16px}
+.promo-slide-content h1{font:800 clamp(48px,6vw,82px)/.94 "Manrope",sans-serif;letter-spacing:-4px;margin:0;color:#fff}
+.promo-slide-content h1 span{color:var(--gold);font-family:"Playfair Display",serif;font-style:italic}
+.promo-slide-content p{max-width:470px;margin:22px 0 0;color:#f3f5f6;font-size:16px;line-height:1.7}
+.hero-dots{position:absolute;z-index:10;bottom:38px;left:50%;transform:translateX(-50%);display:flex;gap:9px}
+.hero-dot{width:34px;height:4px;border:0;border-radius:20px;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:.3s}
+.hero-dot.active{background:var(--gold);width:52px}
+.original-slide{background:var(--cream);padding:175px 0 80px}
+.original-slide .hero-wrap{height:100%}
+.original-slide .hero-scroll{display:none}
+.services-section{background:var(--cream)}
+.services-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;margin-top:65px;align-items:start}
+.services-intro{position:sticky;top:120px;background:var(--paper);border-radius:28px;padding:35px;box-shadow:var(--shadow)}
+.services-intro-number{font-size:11px;letter-spacing:2px;font-weight:900;color:var(--orange);margin-bottom:45px}
+.services-intro h3{font:800 42px/.98 "Manrope",sans-serif;letter-spacing:-2px;color:var(--navy)}
+.services-intro h3 em{font-family:"Playfair Display",serif;color:var(--green);font-weight:600}
+.services-intro p{font-size:14px;line-height:1.75;color:var(--muted);margin:22px 0}
+.text-link{font-size:12px;font-weight:900;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
+.services-list{border-top:1px solid #d7ccba}
+.service-row{display:grid;grid-template-columns:45px 1fr auto 34px;gap:18px;align-items:center;padding:24px 0;border-bottom:1px solid #d7ccba;transition:transform .35s ease,padding .35s ease,background .35s ease}
+.service-row:hover{transform:translateX(7px);padding-left:10px;padding-right:10px;background:rgba(246,195,58,.08)}
+.service-number{font-size:10px;font-weight:900;color:var(--orange)}
+.service-row h3{font-size:19px;color:var(--navy);margin:0 0 5px}
+.service-row p{font-size:12px;line-height:1.55;color:var(--muted);margin:0;max-width:520px}
+.service-price{white-space:nowrap;font-size:10px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;color:var(--green)}
+.service-row>a{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;text-decoration:none;transition:.3s}
+.service-row:hover>a{background:var(--gold);color:var(--navy)}
+.pricing{padding:115px 0;background:var(--navy2)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:55px}
+.price-card{background:#fff;color:var(--navy);border-radius:28px;padding:34px;min-height:300px;display:flex;flex-direction:column;box-shadow:0 20px 55px rgba(0,0,0,.15);position:relative}
+.price-card.featured-price{background:var(--gold)}
+.price-card small{font-size:9px;letter-spacing:2px;font-weight:900;color:var(--green);margin-bottom:22px}
+.featured-price small{color:var(--navy)}
+.price-card h3{font-size:25px;margin:0 0 12px}
+.price-card strong{font-size:20px;color:var(--navy);margin-bottom:14px}
+.price-card p{font-size:13px;line-height:1.65;color:#65717a;margin:0 0 25px}
+.featured-price p{color:#3e4b54}
+.price-card a{margin-top:auto;color:var(--navy);font-size:11px;font-weight:900;text-decoration:none}
+.memory-section{background:var(--paper)}
+.memory-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:75px;align-items:center}
+.memory-photo{height:620px;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);background:#ddd}
+.memory-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.memory-copy h2{font:800 clamp(44px,5vw,68px)/.95 "Manrope",sans-serif;letter-spacing:-3px;color:var(--navy);margin-top:18px}
+.memory-copy h2 span{font-family:"Playfair Display",serif;color:var(--green);font-style:italic}
+.memory-copy p{font-size:15px;line-height:1.8;color:var(--muted);max-width:650px;margin:25px 0}
+.memory-copy blockquote{border-left:4px solid var(--gold);padding:8px 0 8px 22px;font:600 20px/1.55 "Playfair Display",serif;color:var(--navy);max-width:700px;margin:25px 0 12px}
+.memory-copy>strong{font-size:12px;color:var(--green);letter-spacing:.5px}
+.contact-email{font-size:14px!important;margin-top:15px!important;overflow-wrap:anywhere}
+.social-links{margin-top:18px;border-top:1px solid #e8e2d7;padding-top:12px}
+.social-links a{display:block!important;font-size:11px!important;margin:8px 0!important;color:var(--green)!important;text-decoration:none}
+@media (max-width:992px){
+  .hero-carousel{min-height:760px}
+  .hero-slides{height:100%}
+  .promo-slide-content{left:6%;right:6%;max-width:500px}
+  .services-layout,.memory-grid{grid-template-columns:1fr;gap:35px}
+  .services-intro{position:relative;top:auto}
+  .pricing-grid{grid-template-columns:1fr 1fr}
+  .memory-photo{height:520px;max-width:560px}
+}
+@media (max-width:768px){
+  /* Mobile hero: give the slider an actual height. The slides are absolute,
+     so the parent must also have a defined height on small screens. */
+  .hero-carousel{min-height:0;height:520px;padding:0}
+  .hero-slides{position:absolute;inset:0;height:520px}
+  .hero-slide{height:520px;min-height:520px;overflow:hidden}
+
+  /* Full-width promotional banner */
+  .promo-slide{align-items:center;justify-content:center;padding:0;height:520px;min-height:520px}
+  .promo-slide>img{width:100%;height:100%;object-fit:cover;object-position:center center}
+  .promo-slide-overlay{background:linear-gradient(180deg,rgba(5,29,51,.05) 0%,rgba(5,29,51,.12) 32%,rgba(5,29,51,.68) 67%,rgba(5,29,51,.96) 100%)}
+  .promo-slide-content{left:20px;right:20px;top:auto;bottom:65px;transform:none;max-width:none}
+  .promo-slide-content h1{font-size:43px;line-height:.95;letter-spacing:-2px}
+  .promo-slide-content p{max-width:100%;font-size:13px;line-height:1.55;margin-top:12px}
+  .promo-slide-content .hero-actions{margin-top:17px;display:flex;flex-wrap:wrap;gap:8px}
+  .promo-slide-content .btn{font-size:10px;padding:12px 15px}
+
+  /* Slider indicators */
+  .hero-dots{bottom:22px;gap:7px}
+  .hero-dot{width:25px;height:3px}
+  .hero-dot.active{width:38px}
+
+  /* Original Learn. Play. Grow. slide */
+  .original-slide{height:520px;min-height:520px;padding:105px 0 35px;overflow-y:auto}
+  .original-slide .hero-wrap{height:auto;grid-template-columns:1fr;gap:30px}
+  .original-slide .hero-copy{order:1}
+  .original-slide .hero-photo{order:2}
+  .original-slide .hero h1{font-size:58px;letter-spacing:-4px}
+  .original-slide .hero-main-image{height:360px}
+
+  /* Services */
+  .services-layout{margin-top:40px}
+  .services-intro{padding:27px}
+  .services-intro h3{font-size:34px}
+  .service-row{grid-template-columns:34px 1fr 30px;gap:12px;padding:19px 0}
+  .service-price{grid-column:2;grid-row:2;font-size:9px;margin-top:2px}
+  .service-row>a{grid-column:3;grid-row:1 / span 2}
+  .service-row h3{font-size:17px}
+  .service-row p{font-size:11px}
+
+  /* Pricing */
+  .pricing{padding:80px 0}
+  .pricing-grid{grid-template-columns:1fr;gap:14px;margin-top:35px}
+  .price-card{min-height:250px;padding:28px}
+
+  /* Memory section */
+  .memory-grid{gap:30px}
+  .memory-photo{height:430px}
+  .memory-copy h2{font-size:45px;letter-spacing:-2px}
+  .memory-copy blockquote{font-size:17px}
+  .collage-tag{display:none}
+}
+@media (prefers-reduced-motion:reduce){.hero-slide,.promo-slide-content,.service-row{transition:none!important}.reveal,.reveal-right{transition:none!important}}
+
+/* Pricing content supplied by the client */
+.pricing-grid-four{grid-template-columns:repeat(4,1fr)}
+.price-card .price-detail{font-size:11px;line-height:1.55;margin-top:-8px;color:#7b858c}
+.price-card strong span{font-size:.55em;font-weight:800}
+.pricing-note{margin:25px 0 0;font-size:11px;line-height:1.6;color:var(--muted);text-align:right}
+.pricing-note-dark{color:#aab4bb;text-align:center;margin-top:28px}
+@media (max-width:1200px){
+  .pricing-grid-four{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:768px){
+  .pricing-grid-four{grid-template-columns:1fr}
+  .pricing-note{text-align:left}
+}
+
+/* Interactive pricing cards — highlight the card currently under the pointer */
+.pricing-grid-four .price-card {
+  background: #fff;
+  color: var(--navy);
+  transform: translateY(0) scale(1);
+  box-shadow: 0 20px 55px rgba(0,0,0,.15);
+  transition: background-color .35s ease, color .35s ease, transform .35s ease, box-shadow .35s ease, opacity .35s ease;
+}
+
+.pricing-grid-four:hover .price-card:not(:hover) {
+  opacity: .78;
+}
+
+.pricing-grid-four .price-card:hover,
+.pricing-grid-four .price-card:focus-within {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-8px) scale(1.018);
+  box-shadow: 0 28px 65px rgba(0,0,0,.24);
+  opacity: 1;
+}
+
+.pricing-grid-four .price-card::before {
+  content: '';
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  top: 0;
+  height: 4px;
+  border-radius: 0 0 8px 8px;
+  background: transparent;
+  transition: background-color .35s ease, transform .35s ease;
+}
+
+.pricing-grid-four .price-card:hover::before,
+.pricing-grid-four .price-card:focus-within::before {
+  background: var(--navy);
+}
+
+.pricing-grid-four .price-card small,
+.pricing-grid-four .price-card h3,
+.pricing-grid-four .price-card strong,
+.pricing-grid-four .price-card p,
+.pricing-grid-four .price-card .price-detail,
+.pricing-grid-four .price-card a {
+  transition: color .35s ease;
+}
+
+.pricing-grid-four .price-card:hover small,
+.pricing-grid-four .price-card:focus-within small { color: var(--navy); }
+.pricing-grid-four .price-card:hover p,
+.pricing-grid-four .price-card:focus-within p,
+.pricing-grid-four .price-card:hover .price-detail,
+.pricing-grid-four .price-card:focus-within .price-detail { color: #30404b; }
+
+.pricing-grid-four .price-card a:hover,
+.pricing-grid-four .price-card a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .pricing-grid-four:hover .price-card:not(:hover) { opacity: 1; }
+  .pricing-grid-four .price-card:hover,
+  .pricing-grid-four .price-card:focus-within {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-grid-four .price-card,
+  .pricing-grid-four .price-card::before { transition: none; }
+}
+
+/* =========================================================
+   MOBILE HERO — KEEP ONLY "LEARN. PLAY. GROW."
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Hide both promotional/banner slides on mobile */
+    .hero-slides .promo-slide {
+        display: none !important;
+    }
+
+    /* Show the original Geeta hero permanently */
+    .hero-slides .original-slide {
+        display: block !important;
+        position: relative !important;
+        inset: auto !important;
+        width: 100%;
+        height: auto !important;
+        min-height: 650px !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        z-index: 5 !important;
+
+        overflow: visible !important;
+        padding: 105px 0 45px !important;
+    }
+
+    /* Hero container should follow the original slide */
+    .hero-carousel {
+        height: auto !important;
+        min-height: 650px !important;
+        overflow: hidden !important;
+    }
+
+    .hero-slides {
+        position: relative !important;
+        height: auto !important;
+        min-height: 650px !important;
+    }
+
+    /* Original hero layout */
+    .original-slide .hero-wrap {
+        height: auto !important;
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .original-slide .hero-copy {
+        order: 1;
+    }
+
+    .original-slide .hero-photo {
+        order: 2;
+    }
+
+    /* Learn. Play. Grow. heading */
+    .original-slide .hero h1 {
+        font-size: 54px !important;
+        line-height: .94 !important;
+        letter-spacing: -3px !important;
+    }
+
+    .original-slide .hero-lead {
+        font-size: 13px !important;
+        line-height: 1.65 !important;
+        max-width: 100% !important;
+    }
+
+    /* Buttons */
+    .original-slide .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .original-slide .hero-actions .btn {
+        font-size: 10px;
+        padding: 12px 15px;
+    }
+
+    /* Hero image */
+    .original-slide .hero-main-image {
+        height: 320px !important;
+    }
+
+    /* Facts underneath */
+    .original-slide .hero-facts {
+        margin-top: 25px;
+    }
+
+    /* Hide carousel dots on mobile because there is only
+       one visible hero */
+    .hero-dots {
+        display: none !important;
+    }
 }
