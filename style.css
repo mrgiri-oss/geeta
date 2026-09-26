@@ -2188,3 +2188,111 @@ button{font:inherit}
     }
 
 }
+/* =========================================================
+   MOBILE HERO — IMAGE ONLY, FULLY VISIBLE
+   The promotional hero is shown without any text/overlay.
+   It stays in normal document flow, so it naturally leaves
+   the screen while scrolling down and comes back when scrolling up.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Keep the hero in normal page flow on mobile. */
+    .hero-carousel {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        background: var(--cream) !important;
+
+        /* Your supplied banner is a wide 1024:820-style image. */
+        aspect-ratio: 1024 / 820 !important;
+    }
+
+    .hero-slides {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Every slide fills the same image frame. */
+    .hero-slide {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        background: var(--cream) !important;
+    }
+
+    /* Promotional image: show the COMPLETE image, never crop it. */
+    .hero-slides .promo-slide {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        background: var(--cream) !important;
+    }
+
+    .hero-slides .promo-slide > img {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+    }
+
+    /* IMPORTANT: no text over the promotional image. */
+    .hero-slides .promo-slide-overlay,
+    .hero-slides .promo-slide-content,
+    .hero-slides .hero-slide-kicker,
+    .hero-slides .promo-slide h1,
+    .hero-slides .promo-slide p,
+    .hero-slides .promo-slide .hero-actions {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* Hide the original Learn. Play. Grow. slide on mobile. */
+    .hero-slides .original-slide {
+        display: none !important;
+    }
+
+    /* No carousel controls over the image. */
+    .hero-dots {
+        display: none !important;
+    }
+
+    /* On mobile, keep the FIRST promotional image only.
+       This prevents the existing desktop carousel JS from
+       switching to the Learn. Play. Grow. slide or creating
+       a blank frame on mobile. */
+    .hero-slides .promo-slide {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+    }
+
+    .hero-slides .promo-slide:first-of-type {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        z-index: 2 !important;
+    }
+}
+
+/* Slightly smaller phones: preserve the complete banner. */
+@media (max-width: 420px) {
+    .hero-carousel {
+        aspect-ratio: 1024 / 820 !important;
+    }
+}
