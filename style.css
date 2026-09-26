@@ -2296,3 +2296,68 @@ button{font:inherit}
         aspect-ratio: 1024 / 820 !important;
     }
 }
+
+/* =========================================================
+   MOBILE HERO — MOVE IMAGE BELOW FIXED NAVBAR
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-carousel {
+        padding-top: 68px !important;
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+    .hero-slides {
+        position: relative !important;
+        inset: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    /* Promotional image */
+    .hero-slides .promo-slide {
+        position: relative !important;
+        inset: auto !important;
+
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        display: block !important;
+        overflow: hidden !important;
+    }
+
+    .hero-slides .promo-slide > img {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+
+        object-fit: contain !important;
+        object-position: center center !important;
+    }
+
+    /* Remove promotional text/overlay completely */
+    .hero-slides .promo-slide .promo-slide-content,
+    .hero-slides .promo-slide .promo-slide-overlay {
+        display: none !important;
+    }
+
+    /* Keep only the first promotional image on mobile */
+    .hero-slides .promo-slide:not(:first-child) {
+        display: none !important;
+    }
+
+    /* Hide Learn. Play. Grow. on mobile */
+    .hero-slides .original-slide {
+        display: none !important;
+    }
+
+    /* Hide carousel dots */
+    .hero-dots {
+        display: none !important;
+    }
+}
