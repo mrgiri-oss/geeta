@@ -2036,3 +2036,155 @@ button{font:inherit}
         display: none !important;
     }
 }
+
+/* =========================================================
+   MOBILE PROMOTIONAL HERO
+   SHOW THE COMPLETE IMAGE — NO CROPPING
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Hero itself */
+    .hero-carousel {
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: hidden !important;
+        background: var(--cream);
+    }
+
+    .hero-slides {
+        position: relative !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    /* Promotional slides */
+    .hero-slides .promo-slide {
+        position: relative !important;
+        inset: auto !important;
+
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        display: block !important;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        overflow: hidden !important;
+    }
+
+    /* Active promotional slide */
+    .hero-slides .promo-slide.is-active,
+    .hero-slides .promo-slide.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* COMPLETE IMAGE — NO CROPPING */
+    .promo-slide > img {
+        display: block !important;
+
+        width: 100% !important;
+        height: auto !important;
+
+        max-width: 100% !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+    }
+
+    /* Overlay stays over the image */
+    .promo-slide-overlay {
+        position: absolute !important;
+        inset: 0 !important;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5, 29, 51, 0.02) 0%,
+                rgba(5, 29, 51, 0.08) 45%,
+                rgba(5, 29, 51, 0.82) 100%
+            ) !important;
+    }
+
+    /* Promotional text */
+    .promo-slide-content {
+        position: absolute !important;
+
+        left: 18px !important;
+        right: 18px !important;
+        bottom: 45px !important;
+
+        max-width: none !important;
+        transform: none !important;
+
+        color: #fff !important;
+    }
+
+    .promo-slide-content h1 {
+        font-size: 38px !important;
+        line-height: .95 !important;
+        letter-spacing: -2px !important;
+    }
+
+    .promo-slide-content p {
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+        max-width: 100% !important;
+    }
+
+    .promo-slide-content .hero-actions {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 7px !important;
+        margin-top: 12px !important;
+    }
+
+    .promo-slide-content .btn {
+        padding: 10px 13px !important;
+        font-size: 9px !important;
+    }
+
+    /* =====================================================
+       ORIGINAL LEARN. PLAY. GROW. SLIDE
+       ===================================================== */
+
+    .hero-slides .original-slide {
+        position: relative !important;
+        inset: auto !important;
+
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        padding: 90px 0 45px !important;
+    }
+
+    .original-slide .hero-wrap {
+        height: auto !important;
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .original-slide .hero-copy {
+        order: 1;
+    }
+
+    .original-slide .hero-photo {
+        order: 2;
+    }
+
+    .original-slide .hero h1 {
+        font-size: 54px !important;
+        line-height: .94 !important;
+        letter-spacing: -3px !important;
+    }
+
+    .original-slide .hero-main-image {
+        height: 320px !important;
+    }
+
+}
